@@ -20,11 +20,6 @@ install_laravel() {
 			[ $framework_choice -ge 1 ] && 
 			[ $framework_choice -le 2 ]
 			then
-				# if [ $framework_choice -ge 1 -a $framework_choice -le 2 ]
-				# 	then
-				# 		echo -n 'correct choice'
-				# 		break;
-				# fi
 				break;
 		fi
 		printf "Wrong choice. Try again: "
@@ -78,7 +73,6 @@ if [ "${php_location}" = ""  ]
 		echo 'Installing apache, php, mysql and dependencies...';
 		sudo apt-get install -y apache2
 		sudo apt-get install -y curl mysql-server
-		sudo mysql_secure_installation
 		sudo apt-get install -y php libapache2-mod-php php-mcrypt php-mysql php-cli
 		sudo service apache2 restart
 		print_success "Finishing installation..."
