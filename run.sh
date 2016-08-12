@@ -56,7 +56,7 @@ install_laravel() {
 
 update_composer() {
 	print_success "Running composer self update";
-	sudo $composer_location self-update
+	sudo $(which composer) self-update
 	status=$?
 	if [ $status -eq 0 ]
 		then
