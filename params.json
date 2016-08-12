@@ -1,0 +1,6 @@
+{
+  "name": "Laravel installer script",
+  "tagline": "Script to install LAMP, Composer, and Laravel on Debian based Linux distros.",
+  "body": "# Laravel Installer Script\r\n\r\nYou can use this script to install LAMP, composer, and the latest dist release of Laravel at your preferred location. This script will be useful when you are trying to set up a new machine. Improvements and suggestions are welcome.\r\n\r\n## How To\r\n\r\n### By cloning the source repo\r\n```sh\r\ncd ~\r\ngit clone git@github.com:contactsunny/laravel_installer_script.git\r\ncd laravel_installer_script\r\n./run.sh\r\n```\r\n\r\n### Without cloning the source repo\r\n```sh\r\ncurl https://raw.githubusercontent.com/contactsunny/laravel_installer_script/master/run.sh | bash\r\n```\r\n\r\n## Contact me\r\n### [Twitter](https://www.twitter.com/contactsunny)\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
