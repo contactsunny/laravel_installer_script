@@ -1,19 +1,46 @@
 #!/bin/bash
 
-print_error() {
+re='^[0-9]+$'
 
+print_error() {
 	echo "$(tput setab 1)$(tput setaf 7)$1$(tput sgr0)";
 }
 
 print_success() {
-
 	echo "$(tput setab 2)$(tput setaf 0)$1$(tput sgr0)";
 }
 
 install_laravel() {
+	printf "Select framework: \n1. Laravel \n2. Lumen \nEnter choice: "
+	read framework_choice
+
+	while [ $framework_choice =~ $re -o $framework_choice -lt 1 -o $framework_choice -gt 2 ]
+	do
+		printf "Wrong choice. Try again: "
+		read framework_choice
+	done
+
+	if [ $framework_choice -eq 1 ]
+		then
+			framework = 'laravel'
+	else
+		framework = 'lumen'
+	fi
+
+	print_success "Install framework: ${framework}..."
+
 	echo -n "Enter project directory: "
 	read project_directory
-	$(which composer) create-project laravel/laravel --prefer-dist $project_directory
+
+	while [ "{$project_directory}" = "" ]
+	do
+		printf "Invalid directory. Try again: "
+		read project_directory
+	done
+
+	print_success "Installing to ${project_directory}..."
+
+	$(which composer) create-project laravel/$framework --prefer-dist $project_directory
 }
 
 update_composer() {
