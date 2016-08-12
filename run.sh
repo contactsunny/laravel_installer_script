@@ -16,11 +16,10 @@ install_laravel() {
 	while true
 	do
 		read framework_choice
-		if expr "$framework_choice" : '[0-9]\+$'
-			&& [ $framework_choice -ge 1 ]
-			&& [ $framework_choice -le 2 ]
+		if expr "$framework_choice" : '[0-9]\+$' && 
+			[ $framework_choice -ge 1 ] && 
+			[ $framework_choice -le 2 ]
 			then
-				echo -n 'its a number'
 				# if [ $framework_choice -ge 1 -a $framework_choice -le 2 ]
 				# 	then
 				# 		echo -n 'correct choice'
@@ -31,11 +30,12 @@ install_laravel() {
 		printf "Wrong choice. Try again: "
 	done
 
+	framework=""
 	if [ $framework_choice -eq 1 ]
 		then
-			framework = 'laravel'
+			framework="laravel"
 	else
-		framework = 'lumen'
+		framework="lumen"
 	fi
 
 	print_success "Install framework: ${framework}..."
