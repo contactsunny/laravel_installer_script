@@ -12,12 +12,23 @@ print_success() {
 
 install_laravel() {
 	printf "Select framework: \n1. Laravel \n2. Lumen \nEnter choice: "
-	read framework_choice
-
-	while [ $framework_choice =~ $re -o $framework_choice -lt 1 -o $framework_choice -gt 2 ]
+	
+	while true
 	do
-		printf "Wrong choice. Try again: "
 		read framework_choice
+		if expr "$framework_choice" : '[0-9]\+$'
+			&& [ $framework_choice -ge 1 ]
+			&& [ $framework_choice -le 2 ]
+			then
+				echo -n 'its a number'
+				# if [ $framework_choice -ge 1 -a $framework_choice -le 2 ]
+				# 	then
+				# 		echo -n 'correct choice'
+				# 		break;
+				# fi
+				break;
+		fi
+		printf "Wrong choice. Try again: "
 	done
 
 	if [ $framework_choice -eq 1 ]
