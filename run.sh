@@ -70,7 +70,7 @@ update_composer() {
 echo 'Checking if php is installed';
 php_location=$(which php)
 
-if [ "{$php_location}" -eq ""  ]
+if [ "{$php_location}" == ""  ]
 	then
 		print_error "php is not installed. Instaling...";
 		echo 'Updating apt...'
@@ -89,7 +89,7 @@ fi
 echo 'Checking if composer is installed';
 composer_location=$(which composer)
 
-if [ "{$composer_location}" -eq "" ]
+if [ "{$composer_location}" == "" ]
 then
 		print_error "composer not installed, installing...";
 		curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
